@@ -3,7 +3,7 @@
 Este repositorio contiene los documentos de **Política de Privacidad** y **Condiciones del Servicio** para el Chat Bot.
 
 ## Archivos incluidos:
-1. **Política de Privacidad**: [`privacy-policy.html`](https://<tu_usuario>.github.io/chatbot-policies/privacy-policy.html)
+1. **Política de Privacidad**: [`privacy-policy.html`](https://github.com/CBS-LAAG/chatbot-policies/blob/0aac6114a15d4c9dee6352a36370b4c60d5a7e59/privacy-policy.html))
 2. **Condiciones del Servicio**: [`terms-of-service.html`](https://<tu_usuario>.github.io/chatbot-policies/terms-of-service.html)
 
 ## Propósito

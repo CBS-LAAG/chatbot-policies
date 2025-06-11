@@ -1,4 +1,4 @@
-# WhatsApp CRM Application
+# WhatsApp CRM Application - EN
 
 ## Introduction
 The WhatsApp CRM Application is a multi-user system designed to manage customer interactions via WhatsApp. It allows businesses to link multiple WhatsApp accounts, assign chats to agents, and track communication with customers, providing a centralized platform for customer relationship management through WhatsApp. The application features role-based access for Admins, Agents, and general Users, along with a statistics dashboard for Admins.
@@ -151,7 +151,7 @@ Refer to the backend route definitions in `backend/routes/` for more details.
     *   `--no-sandbox` is used; be aware of its security implications if running in an untrusted environment.
 
 
-# Aplicación CRM para WhatsApp
+# Aplicación CRM para WhatsApp - ES
 
 ## Introducción
 La Aplicación CRM para WhatsApp es un sistema multiusuario diseñado para gestionar interacciones con clientes a través de WhatsApp. Permite a las empresas vincular múltiples cuentas de WhatsApp, asignar chats a agentes y hacer seguimiento de la comunicación con los clientes, proporcionando una plataforma centralizada para la gestión de relaciones con clientes mediante WhatsApp. La aplicación incluye acceso basado en roles para Administradores, Agentes y Usuarios generales, junto con un panel de estadísticas para los Administradores.

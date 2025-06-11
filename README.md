@@ -149,8 +149,6 @@ Refer to the backend route definitions in `backend/routes/` for more details.
     *   `whatsapp-web.js` relies on Puppeteer, which downloads a compatible Chromium browser. If this fails or there are issues, you might see errors.
     *   Ensure you have necessary dependencies for Puppeteer on your OS (especially on Linux). The provided Puppeteer args in `whatsappService.js` aim to minimize issues in restricted environments.
     *   `--no-sandbox` is used; be aware of its security implications if running in an untrusted environment.
-```
-
 
 
 # Aplicación CRM para WhatsApp

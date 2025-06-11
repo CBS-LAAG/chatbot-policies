@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp CRM - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="userInfo">Welcome, <span id="usernameDisplay">User</span>!</div>
+            <button id="logoutButton">Logout</button>
+        </header>
+
+        <nav id="mainNav">
+            <ul></ul>
+        </nav>
+
+        <main>
+            <section id="adminSection" class="dashboard-section">
+                <h2>Admin Dashboard</h2>
+
+                <div id="adminUserManagement" class="admin-subsection">
+                    <!-- User Management HTML from previous step -->
+                    <h3>User Management</h3>
+                    <form id="userForm">
+                        <input type="hidden" id="userId" name="userId">
+                        <div><label for="userUsername">Username:</label><input type="text" id="userUsername" name="userUsername" required></div>
+                        <div><label for="userPassword">Password (leave blank if not changing):</label><input type="password" id="userPassword" name="userPassword"></div>
+                        <div><label for="userRole">Role:</label><select id="userRole" name="userRole"><option value="User">User</option><option value="Agent">Agent</option><option value="Admin">Admin</option></select></div>
+                        <button type="submit" id="saveUserButton">Save User</button>
+                        <button type="button" id="clearUserFormButton">Clear Form</button>
+                    </form>
+                    <table id="usersTable"><thead><tr><th>ID</th><th>Username</th><th>Role</th><th>Actions</th></tr></thead><tbody></tbody></table>
+                </div>
+
+                <div id="adminWhatsAppManagement" class="admin-subsection">
+                    <!-- WhatsApp Account Management HTML from previous step -->
+                    <h3>WhatsApp Account Management</h3>
+                    <form id="linkWhatsAppForm">
+                        <div><label for="phoneNumber">Phone Number (e.g., 1xxxxxxxxxx):</label><input type="text" id="phoneNumber" name="phoneNumber" required></div>
+                        <button type="submit">Link Account</button>
+                    </form>
+                    <div id="qrCodeArea" style="display:none;"><p>Scan QR code:</p><pre id="qrCodeDisplay"></pre></div>
+                    <h4>Linked Accounts:</h4><ul id="whatsAppAccountsList" class="item-list"></ul>
+                </div>
+
+                <div id="adminStatistics" class="admin-subsection">
+                    <h3>Statistics Dashboard</h3>
+                    <div id="statsControls">
+                        <label for="statsStartDate">Start Date:</label>
+                        <input type="date" id="statsStartDate">
+                        <label for="statsEndDate">End Date:</label>
+                        <input type="date" id="statsEndDate">
+                        <label for="statsAgentId">Agent (Optional):</label>
+                        <select id="statsAgentId"><option value="">All Agents</option></select>
+                        <label for="statsWhatsAppAccountId">WhatsApp Account (Optional):</label>
+                        <select id="statsWhatsAppAccountId"><option value="">All Accounts</option></select>
+                        <button id="loadStatsButton">Load Statistics</button>
+                    </div>
+                    <div id="statisticsView">
+                        <h4>Chat Volume</h4>
+                        <canvas id="chatVolumeChart" width="400" height="200"></canvas>
+                        <h4>Closure Types</h4>
+                        <canvas id="closureTypesChart" width="400" height="200"></canvas>
+                        <h4>Agent Performance</h4>
+                        <div id="agentPerformanceTableContainer">
+                            <table id="agentPerformanceTable">
+                                <thead><tr><th>Agent ID</th><th>Name</th><th>Chats Handled</th><th>Quotations</th><th>Billings</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="agentSection" class="dashboard-section">
+                <h2>Agent Dashboard</h2>
+                <p>This section primarily uses the Chat Interface below.</p>
+                <!-- Agent-specific info could go here if chatInterfaceSection is truly separate -->
+            </section>
+
+            <section id="userSection" class="dashboard-section">
+                <h2>User Dashboard</h2>
+                <p>Welcome! You can view chats in the Chat Interface section if available.</p>
+            </section>
+
+            <section id="chatInterfaceSection" class="dashboard-section">
+                <!-- Chat Interface HTML from previous step, ensuring it's usable by all roles (JS handles controls) -->
+                <h3>Chat Interface</h3>
+                <div id="chatList" style="float:left; width: 30%; height: 400px; overflow-y: scroll; border: 1px solid #ccc;"><p>Chats</p><ul id="chatListUL" class="item-list"></ul></div>
+                <div id="chatView" style="float:left; width: 68%; margin-left: 1%; height: 400px;">
+                    <div id="messagesView" class="chat-area"></div>
+                    <div id="chatControls">
+                       <div id="assignAgentArea" style="display:none;"><label for="agentSelect">Assign to Agent:</label><select id="agentSelect"></select><button id="assignChatButton">Assign</button></div>
+                       <textarea id="messageInput" placeholder="Type your message..." style="width: 80%; display:none;"></textarea>
+                       <button id="sendMessageButton" style="display:none;">Send</button>
+                       <select id="closureTypeSelect" style="display:none;"><option value="">Select Closure Type</option><option value="quotation">Quotation</option><option value="billing">Billing</option></select>
+                       <button id="closeChatButton" style="display:none;">Close Chat</button>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </section>
+
+            <section id="loadingSection" class="dashboard-section" style="display: block;"><p>Loading dashboard...</p></section>
+        </main>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/socketClient.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/statistics.js"></script> <!-- New statistics JS file -->
+    <script src="js/main.js"></script>
+</body>
+</html>
